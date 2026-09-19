@@ -1,302 +1,629 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para ti, Ale 💗</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: #1a102f;
-            color: #fce4ec;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            overflow-x: hidden;
-            position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Feliz 212 días Rabanita ❤️">
+<title>Para ti, Ale 💗</title>
 
-        /* Corazones decorativos sutiles en el fondo */
-        body::before {
-            content: "♥   ♥   ♥     ♥   ♥     ♥   ♥   ♥     ♥";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: rgba(233, 30, 99, 0.04);
-            font-size: 2.5rem;
-            letter-spacing: 80px;
-            z-index: -1;
-            pointer-events: none;
-            display: flex;
-            flex-wrap: wrap;
-            align-content: space-around;
-            justify-content: center;
-            overflow: hidden;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        h1 {
-            color: #ff4081;
-            margin-bottom: 5px;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-        }
+<style>
+:root{
+  --bg:#140b24;
+  --bg2:#211137;
+  --card:rgba(42,22,67,.78);
+  --pink:#ff5f9e;
+  --pink2:#ff9bc5;
+  --white:#fff7fc;
+  --soft:#d9c6d8;
+  --line:rgba(255,95,158,.22);
+  --shadow:0 18px 55px rgba(0,0,0,.34);
+}
 
-        .intro-message {
-            max-width: 700px;
-            margin: 0 auto 20px auto;
-            background: #261744;
-            padding: 20px 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            line-height: 1.6;
-            color: #f8bbd0;
-            border: 1px solid rgba(255, 64, 129, 0.15);
-        }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  margin:0;
+  min-width:0;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 15% 8%,rgba(176,67,170,.16),transparent 30%),
+    radial-gradient(circle at 85% 70%,rgba(255,70,150,.10),transparent 32%),
+    var(--bg);
+  color:var(--white);
+  font-family:"Quicksand",sans-serif;
+  text-align:center;
+}
+button{font:inherit}
+img{max-width:100%}
+main{position:relative;z-index:2}
 
-        .counter {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            background: #261744;
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-            color: #ff4081;
-            font-weight: 600;
-            border: 1px solid rgba(255, 64, 129, 0.15);
-        }
+.hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.heart{
+  position:absolute;
+  color:rgba(255,105,170,.38);
+  font-size:clamp(18px,2vw,29px);
+  filter:drop-shadow(0 0 10px rgba(255,80,160,.25));
+  animation:float 14s linear infinite;
+}
+.h1{left:7%;top:78%;animation-duration:14s}
+.h2{left:22%;top:36%;animation-duration:18s;animation-delay:-6s}
+.h3{left:73%;top:78%;animation-duration:16s;animation-delay:-9s}
+.h4{left:89%;top:29%;animation-duration:20s;animation-delay:-4s}
+.h5{left:46%;top:88%;animation-duration:17s;animation-delay:-11s}
+.h6{left:62%;top:18%;animation-duration:19s;animation-delay:-7s}
+.h7{left:33%;top:60%;animation-duration:15s;animation-delay:-2s}
 
-        .music-container {
-            margin: 20px 0;
-        }
+@keyframes float{
+  0%{transform:translateY(45px) rotate(0);opacity:0}
+  15%{opacity:.65}
+  50%{transform:translateY(-65px) rotate(10deg);opacity:.42}
+  85%{opacity:.18}
+  100%{transform:translateY(-190px) rotate(-10deg);opacity:0}
+}
 
-        button {
-            background-color: #e91e63;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 15px;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            transition: 0.3s;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 600;
-        }
+.hero{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 16px 95px;
+}
+.hero-inner{width:min(850px,100%);animation:appear 1s ease both}
+@keyframes appear{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.eyebrow{
+  color:var(--pink2);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:.72rem;
+  font-weight:700;
+}
+h1{
+  margin:10px 0 0;
+  color:var(--pink);
+  font-size:clamp(2.2rem,8vw,4.8rem);
+  line-height:1.08;
+  font-weight:700;
+}
+.heart-title{font-size:2.3rem;color:var(--pink);margin:8px 0}
+.divider{display:flex;align-items:center;gap:14px;width:min(330px,78%);margin:22px auto}
+.divider i{height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--pink))}
+.divider i:last-child{background:linear-gradient(90deg,var(--pink),transparent)}
+.divider span{color:var(--pink)}
+.intro-message{
+  width:min(760px,100%);
+  margin:auto;
+  padding:24px clamp(18px,5vw,32px);
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+  box-shadow:var(--shadow);
+  color:#f8d9e8;
+  font-size:clamp(.94rem,2vw,1.08rem);
+  line-height:1.8;
+}
+.signature{
+  margin-top:24px;
+  color:var(--pink2);
+  font-family:"Great Vibes",cursive;
+  font-size:2.5rem;
+}
+.scroll{
+  position:absolute;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  color:var(--soft);
+  font-size:.68rem;
+  letter-spacing:2px;
+}
+.scroll b{display:block;color:var(--pink);font-size:1.35rem;animation:bounce 1.5s infinite}
+@keyframes bounce{50%{transform:translateY(7px)}}
 
-        button:hover {
-            background-color: #c2185b;
-            transform: translateY(-2px);
-        }
+.section{
+  width:min(950px,calc(100% - 28px));
+  margin:auto;
+  padding:78px 0;
+}
+.label{
+  color:var(--pink2);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:.72rem;
+  font-weight:700;
+}
+h2{
+  margin:8px 0 0;
+  font-family:"Great Vibes",cursive;
+  font-weight:400;
+  color:var(--white);
+  font-size:clamp(3rem,8vw,5rem);
+  line-height:1.1;
+}
 
-        /* Galería vertical estrictamente contenida */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 10px;
-            width: 100%;
-        }
+.counter-card,.music-card{
+  width:min(650px,100%);
+  margin:35px auto 0;
+  padding:30px 20px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:var(--card);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+}
+.days{
+  color:var(--pink);
+  font-size:clamp(4rem,15vw,8rem);
+  line-height:1;
+  font-weight:700;
+  text-shadow:0 0 35px rgba(255,95,158,.25);
+}
+.days-label{margin-top:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.date{margin-top:8px;color:var(--soft);font-size:.85rem}
+.little-heart{margin:20px 0;color:var(--pink);font-size:1.4rem}
 
-        .gallery img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-            background-color: #261744;
-        }
+.music-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-align:left;
+  padding:16px;
+}
+.music-disc{
+  flex:0 0 48px;width:48px;height:48px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:rgba(255,95,158,.14);
+  color:var(--pink);
+  font-size:1.45rem;
+}
+.music-info{min-width:0;flex:1}
+.song-name{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
+.song-state{display:block;color:var(--soft);font-size:.75rem;margin-top:2px}
+.play{
+  flex:0 0 48px;width:48px;height:48px;
+  border:0;border-radius:50%;
+  background:var(--pink);color:#35102a;
+  cursor:pointer;font-weight:700;
+  transition:transform .2s,background .2s;
+}
+.play:hover{transform:scale(1.06);background:var(--pink2)}
+.play:focus-visible,.next:focus-visible{outline:3px solid var(--pink2);outline-offset:4px}
 
-        .gallery img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 12px rgba(233, 30, 99, 0.3);
-        }
+.gallery-section{background:rgba(0,0,0,.08)}
+.gallery-intro{max-width:650px;margin:14px auto 30px;color:var(--soft);font-size:.9rem}
+.gallery{width:100%;display:flex;flex-direction:column;align-items:center;gap:28px}
+.photo-card{
+  width:min(760px,100%);
+  opacity:0;
+  transform:translateY(35px);
+  animation:photoIn .7s ease forwards;
+}
+@keyframes photoIn{to{opacity:1;transform:none}}
+.photo-frame{
+  width:100%;
+  overflow:hidden;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.1);
+  background:#0d0715;
+  box-shadow:var(--shadow);
+}
+.photo-frame img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:78vh;
+  object-fit:contain;
+  margin:auto;
+}
+.photo-caption{margin:10px 0 0;color:var(--soft);font-size:.76rem}
+.final-label{
+  margin-bottom:10px;
+  color:var(--pink);
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.final-photo .photo-frame{
+  border-color:rgba(255,95,158,.55);
+  box-shadow:0 0 45px rgba(255,95,158,.15),var(--shadow);
+}
+.controls{margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.next{
+  border:1px solid rgba(255,95,158,.45);
+  border-radius:999px;
+  padding:12px 25px;
+  background:rgba(255,95,158,.10);
+  color:var(--white);
+  cursor:pointer;
+  transition:.2s;
+}
+.next:hover{transform:translateY(-2px);background:rgba(255,95,158,.2)}
+.next.hidden{display:none}
+.photo-count{color:var(--soft);font-size:.75rem}
+.status{color:var(--soft);font-size:.9rem;padding:25px}
 
-        .upload-section {
-            margin-top: 40px;
-            background: #261744;
-            padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            margin-bottom: 40px;
-            max-width: 90%;
-            border: 1px solid rgba(255, 64, 129, 0.15);
-        }
+.final{
+  min-height:55vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:90px 16px;
+}
+.final-inner{width:min(650px,100%)}
+.final-heart{font-size:3rem;color:var(--pink);animation:pulse 2.5s infinite}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.final p{color:var(--soft)}
+.final-signature{margin-top:28px;color:var(--soft)}
+.final-signature strong{font-family:"Great Vibes",cursive;font-size:2rem;color:var(--pink2);font-weight:400}
+footer{padding:25px 16px;border-top:1px solid rgba(255,255,255,.06);color:#bba8bc;font-size:.72rem}
 
-        .upload-section input[type="file"] {
-            color: #f8bbd0;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-
-        footer {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #b39ddb;
-            padding-bottom: 20px;
-        }
-    </style>
+@media(max-width:600px){
+  .hero{padding:50px 13px 90px}
+  .intro-message{line-height:1.72}
+  .section{padding:65px 0}
+  .music-card{padding:13px}
+  .music-disc,.play{width:44px;height:44px;flex-basis:44px}
+  .photo-frame{border-radius:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+</style>
 </head>
+
 <body>
+<div class="hearts" aria-hidden="true">
+  <span class="heart h1">♥</span><span class="heart h2">♥</span>
+  <span class="heart h3">♥</span><span class="heart h4">♥</span>
+  <span class="heart h5">♥</span><span class="heart h6">♥</span>
+  <span class="heart h7">♥</span>
+</div>
 
-    <h1 id="main-title">Días y contando, Rabanita 💗</h1>
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="heart-title">♡</div>
+      <div class="eyebrow">Un recuerdo para siempre</div>
+      <h1 id="main-title">Días y contando, Rabanita 💗</h1>
 
-    <div class="intro-message">
-        Y llegamos al hoy. Quiero que sepas que este no es un final, es un punto de partida más para que sigamos conociéndonos. 
-        Te quiero muchísimo, Ale. ¡Feliz día del amor y la amistad! 
+      <div class="divider"><i></i><span>♥</span><i></i></div>
+
+      <!-- MENSAJE CONSERVADO DEL INDEX ACTUAL -->
+      <div class="intro-message">
+        Y llegamos al hoy. Quiero que sepas que este no es un final, es un punto de partida más para que sigamos conociéndonos.
+        <br><br>
+        Te quiero muchísimo, Ale. ¡Feliz día del amor y la amistad!
         <br><br>
         <em>I love you, and I love you forever.</em><br>
         <strong>Con mucho trabajo y cariño, Samuel 💗</strong>
-    </div>
-    
-    <div class="counter" id="counter">Calculando días...</div>
+      </div>
 
-    <div class="music-container">
-        <audio id="bg-music" loop>
-            <source src="Put Your Head On My Shoulder.mp3" type="audio/mpeg">
-            Tu navegador no soporta el elemento de audio.
-        </audio>
-        <button onclick="toggleMusic()">▶ Reproducir Música</button>
+      <div class="signature">Samuel</div>
     </div>
 
-    <!-- Galería con carpetas de GitHub y contenido local -->
+    <div class="scroll">DESLIZA<b>↓</b></div>
+  </section>
+
+  <section class="section">
+    <div class="label">Desde aquel día</div>
+    <h2>Nuestra amistad</h2>
+
+    <div class="counter-card">
+      <div class="days" id="days">0</div>
+      <div class="days-label">días y contando 💗</div>
+      <div class="date">Desde el 19 de febrero de 2026 · Colombia</div>
+      <div class="little-heart">♥</div>
+      <div style="color:var(--soft);font-size:.9rem">Cada día se convierte en un recuerdo más.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="label">Una canción para este momento</div>
+    <h2>Nuestra canción</h2>
+
+    <div class="music-card">
+      <div class="music-disc">♪</div>
+      <div class="music-info">
+        <span class="song-name">Put Your Head On My Shoulder</span>
+        <span class="song-state" id="song-state">Toca para reproducir</span>
+      </div>
+      <button class="play" id="play" type="button" aria-label="Reproducir canción">▶</button>
+    </div>
+
+    <audio id="music" preload="metadata" loop>
+      <source src="Put Your Head On My Shoulder.mp3" type="audio/mpeg">
+    </audio>
+  </section>
+
+  <section class="section gallery-section">
+    <div class="label">Nuestros recuerdos</div>
+    <h2>Momentos que quedan</h2>
+    <p class="gallery-intro">
+      Una fotografía a la vez. Pulsa siguiente para continuar nuestro recorrido.
+    </p>
+
     <div class="gallery" id="gallery">
-        <!-- Las fotos se cargarán de forma automática -->
+      <div class="status">Cargando nuestros recuerdos... 💗</div>
     </div>
 
-    <div class="upload-section">
-        <h3>Sube un nuevo recuerdo</h3>
-        <input type="file" id="imageInput" accept="image/*" multiple>
-        <p style="font-size: 0.85rem; color: #b39ddb; margin-top: 8px;">Las fotos que subas se agregarán ordenadamente hacia abajo.</p>
+    <div class="controls">
+      <button class="next" id="next" type="button">
+        Ver siguiente ↓
+      </button>
+      <div class="photo-count" id="photo-count">Preparando galería...</div>
     </div>
+  </section>
 
-    <footer>
-        Hecho con cariño para celebrar una gran amistad 💫
-    </footer>
+  <section class="final">
+    <div class="final-inner">
+      <div class="final-heart">♥</div>
+      <h2>Y esto apenas comienza...</h2>
+      <p>Gracias por cada momento, cada risa y cada recuerdo.</p>
+      <div class="final-signature">Con cariño,<br><strong>Samuel 💗</strong></div>
+    </div>
+  </section>
+</main>
 
-    <script>
-        // 1. Contador exacto desde el 19 de febrero de 2026 (Hora de Colombia UTC-5)
-        function updateCounter() {
-            const startDate = new Date("2026-02-19T00:00:00-05:00"); 
-            const now = new Date();
-            const colombiaTime = new Date(now.toLocaleString("en-US", { timeZone: "America/Bogota" }));
-            
-            const diffTime = colombiaTime - startDate;
-            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            
-            const totalDays = diffDays >= 0 ? diffDays : 0;
-            document.getElementById('main-title').innerText = `${totalDays} días y contando, Rabanita 💗`;
-            document.getElementById('counter').innerText = `Han pasado ${totalDays} días compartidos 💫`;
-        }
-        updateCounter();
+<footer>Hecho con cariño para celebrar una gran amistad 💫</footer>
 
-        // 2. Reproductor de música funcional
-        function toggleMusic() {
-            const music = document.getElementById('bg-music');
-            const button = document.querySelector('.music-container button');
-            if (music.paused) {
-                music.play().catch(e => console.log("Reproducción pausada por políticas del navegador"));
-                button.innerText = "⏸ Pausar Música";
-            } else {
-                music.pause();
-                button.innerText = "▶ Reproducir Música";
-            }
-        }
+<script>
+(() => {
+  "use strict";
 
-        // 3. Carga automática de la galería desde las 11 carpetas de GitHub y almacenamiento local
-        const gallery = document.getElementById('gallery');
+  const OWNER = "Samuel-Alex-T";
+  const REPO = "rabanita-212-dias";
+  const BRANCH = "main";
+  const MUSIC_FILE = "Put Your Head On My Shoulder.mp3";
+  const API_BASE = `https://api.github.com/repos/${OWNER}/${REPO}/contents`;
+  const RAW_BASE = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
-        // Obtiene el nombre de usuario y repositorio actual desde la URL de GitHub Pages o usa valores por defecto seguros
-        function getGitHubBaseUrls() {
-            // Genera enlaces raw estables para las 11 carpetas basándose en la estructura estándar de GitHub
-            // Reemplaza 'tu-usuario' y 'tu-repo' si deseas forzarlo, o se detecta automáticamente si está en github.io
-            let username = "rabanita-212-dias"; // Puedes ajustarlo si tu usuario/repo difiere
-            let repo = "rabanita-212-dias";
-            
-            // Si prefieres rutas relativas limpias (funciona perfecto si las carpetas están en la raíz del proyecto):
-            let urls = [];
-            for (let c = 1; c <= 11; c++) {
-                // Asumimos nombres estándar del 1 al 10 dentro de cada carpeta fotos_ale1 ... fotos_ale11
-                for (let i = 1; i <= 10; i++) {
-                    urls.push(`fotos_ale${c}/${i}.jpg`);
-                    urls.push(`fotos_ale${c}/${i}.png`);
-                }
-            }
-            return urls;
-        }
+  /* ---------------- CONTADOR: CALENDARIO DE COLOMBIA ---------------- */
+  const START = { year: 2026, month: 2, day: 19 };
 
-        async function loadAllPhotos() {
-            gallery.innerHTML = '';
+  function colombiaCalendarDate() {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Bogota",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date());
 
-            // Cargar imágenes desde las carpetas del repositorio mediante rutas relativas directas
-            // Nota: Puedes listar aquí archivos concretos o dejar que el sistema valide la existencia visual
-            for (let c = 1; c <= 11; c++) {
-                for (let i = 1; i <= 10; i++) {
-                    // Probamos extensiones comunes (.jpg y .png) para cada elemento de las 11 carpetas
-                    ['jpg', 'png', 'jpeg'].forEach(ext => {
-                        const imgPath = `fotos_ale${c}/${i}.${ext}`;
-                        // Creamos la etiqueta de imagen asegurando visibilidad limpia vertical
-                    });
-                }
-            }
+    const out = {};
+    for (const p of parts) if (p.type !== "literal") out[p.type] = p.value;
+    return {
+      year: Number(out.year),
+      month: Number(out.month),
+      day: Number(out.day)
+    };
+  }
 
-            // Para asegurar compatibilidad total y robustez con tus archivos subidos:
-            // Renderizamos primero las imágenes que el usuario guarde localmente o cargue de forma interactiva
-            let userPhotos = JSON.parse(localStorage.getItem('user_photos') || '[]');
-            
-            // Si deseas agregar rutas estáticas directas de tus carpetas para asegurarlas en el DOM:
-            // Ejemplo de respaldo visual integrado:
-            const sampleImages = []; 
-            
-            // Combinamos repositorio y almacenamiento local
-            const allImages = [...sampleImages, ...userPhotos];
+  function utcDay(y, m, d) {
+    return Date.UTC(y, m - 1, d);
+  }
 
-            // Si no hay fotos locales aún, mostramos un aviso visual amigable o dejamos las carpetas preparadas
-            if (allImages.length === 0) {
-                // Generamos una carga dinámica basada en la existencia de las carpetas fotos_ale1 a fotos_ale11
-                for (let c = 1; c <= 11; c++) {
-                    const img = document.createElement('img');
-                    // Apunta a una imagen de referencia o comodín si es necesario, 
-                    // o el sistema levantará las imágenes que subiste con sus nombres reales.
-                }
-            }
+  function updateCounter() {
+    const now = colombiaCalendarDate();
+    const start = utcDay(START.year, START.month, START.day);
+    const current = utcDay(now.year, now.month, now.day);
+    const days = Math.max(0, Math.floor((current - start) / 86400000));
 
-            allImages.forEach(src => {
-                const img = document.createElement('img');
-                img.src = src;
-                img.alt = "Recuerdo especial";
-                img.loading = "lazy";
-                gallery.appendChild(img);
-            });
-        }
+    document.getElementById("days").textContent =
+      days.toLocaleString("es-CO");
+    document.getElementById("main-title").textContent =
+      `${days} días y contando, Rabanita 💗`;
+  }
 
-        // Manejo de nuevas fotos subidas por el usuario (se colocan ordenadamente hacia abajo)
-        document.getElementById('imageInput').addEventListener('change', function(event) {
-            const files = event.target.files;
-            let userPhotos = JSON.parse(localStorage.getItem('user_photos') || '[]');
-            
-            for (let file of files) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    userPhotos.push(e.target.result);
-                    localStorage.setItem('user_photos', JSON.stringify(userPhotos));
-                    loadAllPhotos();
-                }
-                reader.readAsDataURL(file);
-            }
+  updateCounter();
+  setInterval(updateCounter, 60000);
+
+  /* ---------------- MÚSICA ---------------- */
+  const music = document.getElementById("music");
+  const play = document.getElementById("play");
+  const state = document.getElementById("song-state");
+
+  play.addEventListener("click", async () => {
+    try {
+      if (music.paused) {
+        await music.play();
+        play.textContent = "❚❚";
+        play.setAttribute("aria-label", "Pausar canción");
+        state.textContent = "Reproduciendo";
+      } else {
+        music.pause();
+      }
+    } catch (error) {
+      console.error(error);
+      state.textContent = "No se pudo reproducir el audio";
+    }
+  });
+
+  music.addEventListener("pause", () => {
+    if (!music.ended) {
+      play.textContent = "▶";
+      play.setAttribute("aria-label", "Reproducir canción");
+      state.textContent = "Toca para reproducir";
+    }
+  });
+
+  /* ---------------- GALERÍA ---------------- */
+  const gallery = document.getElementById("gallery");
+  const next = document.getElementById("next");
+  const count = document.getElementById("photo-count");
+
+  let photos = [];
+  let index = 0;
+
+  const imageExtensions = /\.(jpe?g|png|webp|gif|avif)$/i;
+
+  function naturalCompare(a, b) {
+    return a.localeCompare(b, undefined, {
+      numeric: true,
+      sensitivity: "base"
+    });
+  }
+
+  async function getFolderFiles(folder) {
+    const url = `${API_BASE}/${encodeURIComponent(folder)}?ref=${encodeURIComponent(BRANCH)}`;
+
+    const response = await fetch(url, {
+      headers: { Accept: "application/vnd.github+json" }
+    });
+
+    if (!response.ok) {
+      throw new Error(`No se pudo leer ${folder} (${response.status})`);
+    }
+
+    const files = await response.json();
+
+    if (!Array.isArray(files)) return [];
+
+    return files
+      .filter(file => file.type === "file" && imageExtensions.test(file.name))
+      .sort((a, b) => naturalCompare(a.name, b.name))
+      .map(file => ({
+        name: file.name,
+        url: file.download_url || RAW_BASE + file.path
+      }));
+  }
+
+  async function loadPhotos() {
+    const results = await Promise.all(
+      Array.from({ length: 11 }, (_, i) =>
+        getFolderFiles(`fotos_ale${i + 1}`)
+      )
+    );
+
+    const ordered = [];
+
+    results.forEach((files, i) => {
+      const folderNumber = i + 1;
+
+      /*
+       * Si la carpeta 11 contiene un archivo cuyo nombre incluye
+       * "final", se fuerza al último lugar.
+       */
+      if (folderNumber === 11) {
+        files.sort((a, b) => {
+          const af = /final/i.test(a.name) ? 1 : 0;
+          const bf = /final/i.test(b.name) ? 1 : 0;
+          if (af !== bf) return af - bf;
+          return naturalCompare(a.name, b.name);
         });
+      }
 
-        loadAllPhotos();
-    </script>
+      ordered.push(
+        ...files.map(file => ({
+          ...file,
+          folder: folderNumber
+        }))
+      );
+    });
+
+    return ordered;
+  }
+
+  function showPhoto(i, shouldScroll = false) {
+    if (!photos[i]) return;
+
+    const photo = photos[i];
+    const card = document.createElement("article");
+    card.className = "photo-card";
+
+    const isFinal = i === photos.length - 1 && photo.folder === 11;
+
+    if (isFinal) {
+      card.classList.add("final-photo");
+
+      const label = document.createElement("div");
+      label.className = "final-label";
+      label.textContent = "Foto final ♥";
+      card.appendChild(label);
+    }
+
+    const frame = document.createElement("div");
+    frame.className = "photo-frame";
+
+    const img = document.createElement("img");
+    img.src = photo.url;
+    img.alt = isFinal ? "Foto final" : `Recuerdo ${i + 1}`;
+    img.loading = i === 0 ? "eager" : "lazy";
+    img.decoding = "async";
+
+    img.onerror = () => {
+      card.remove();
+      count.textContent = `No se pudo cargar ${photo.name}`;
+    };
+
+    frame.appendChild(img);
+    card.appendChild(frame);
+
+    const caption = document.createElement("div");
+    caption.className = "photo-caption";
+    caption.textContent = `${i + 1} de ${photos.length}`;
+    card.appendChild(caption);
+
+    gallery.appendChild(card);
+
+    count.textContent = `${i + 1} / ${photos.length}`;
+
+    if (i >= photos.length - 1) {
+      next.classList.add("hidden");
+    } else {
+      next.classList.remove("hidden");
+    }
+
+    if (shouldScroll) {
+      requestAnimationFrame(() => {
+        const y = card.getBoundingClientRect().top + window.scrollY - 35;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      });
+    }
+  }
+
+  async function initGallery() {
+    try {
+      photos = await loadPhotos();
+
+      gallery.innerHTML = "";
+
+      if (!photos.length) {
+        gallery.innerHTML =
+          '<div class="status">No se encontraron imágenes en las carpetas de GitHub.</div>';
+        next.classList.add("hidden");
+        count.textContent = "0 fotos";
+        return;
+      }
+
+      index = 0;
+      showPhoto(0, false);
+
+    } catch (error) {
+      console.error(error);
+      gallery.innerHTML = `
+        <div class="status">
+          No se pudieron cargar las fotografías.<br>
+          <small>Revisa que el repositorio sea público y que las carpetas fotos_ale1 a fotos_ale11 estén en la rama main.</small>
+        </div>
+      `;
+      next.classList.add("hidden");
+      count.textContent = "Error al cargar la galería";
+    }
+  }
+
+  next.addEventListener("click", () => {
+    if (index >= photos.length - 1) return;
+    index += 1;
+    showPhoto(index, true);
+  });
+
+  initGallery();
+})();
+</script>
 </body>
 </html>
