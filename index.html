@@ -95,7 +95,7 @@
 </head>
 <body>
 
-    <h1>212 días y contando, Rabanita 💗</h1>
+    <h1 id="main-title">Días y contando, Rabanita 💗</h1>
 
     <div class="intro-message">
         Y llegamos al hoy. Quiero que sepas que este no es un final, es un punto de partida más para que sigamos conociéndonos. 
@@ -116,7 +116,7 @@
     </div>
 
     <div class="gallery" id="gallery">
-        <!-- Las fotos se cargarán aquí automáticamente -->
+        <!-- Las fotos de tus carpetas o nuevas se cargarán aquí -->
     </div>
 
     <div class="upload-section">
@@ -130,15 +130,17 @@
     </footer>
 
     <script>
-        // 1. Contador de días sincronizado con la hora de Colombia (UTC-5)
+        // 1. Contador exacto desde el 19 de febrero de 2026 (hora de Colombia UTC-5)
         function updateCounter() {
-            const startDate = new Date("2026-02-01T00:00:00-05:00"); 
+            const startDate = new Date("2026-02-19T00:00:00-05:00"); 
             const now = new Date();
             const colombiaTime = new Date(now.toLocaleString("en-US", { timeZone: "America/Bogota" }));
             
             const diffTime = colombiaTime - startDate;
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             
+            // Actualiza tanto el título principal como el contador con el número exacto
+            document.getElementById('main-title.innerText` = `${diffDays} días y contando, Rabanita 💗`;
             document.getElementById('counter').innerText = `Han pasado ${diffDays} días compartidos 💫`;
         }
         updateCounter();
@@ -156,41 +158,13 @@
             }
         }
 
-        // 3. Carga automática leyendo directo de las 11 carpetas en GitHub
+        // 3. Carga de galería
         const gallery = document.getElementById('gallery');
 
-        async function loadAllPhotos() {
+        function loadAllPhotos() {
             gallery.innerHTML = '';
-
-            // Como tus fotos se subieron con nombres por defecto de GitHub (ej. image.png, photo.jpg o números),
-            // vamos a recorrer las 11 carpetas buscando nombres comunes o cargando las extensiones estándar.
-            // Para asegurar que carguen sin importar cómo se llamen dentro de cada carpeta:
-            
-            // Recorremos desde la carpeta 1 hasta la 11
-            for (let c = 1; c <= 11; c++) {
-                // Suponiendo hasta 10 fotos por carpeta (como mencionaste que hiciste grupos de 10)
-                for (let i = 1; i <= 10; i++) {
-                    // Probamos diferentes extensiones y nombres comunes con los que GitHub guarda las subidas web
-                    const possibleNames = [
-                        `fotos_ale${c}/${i}.jpg`,
-                        `fotos_ale${c}/${i}.png`,
-                        `fotos_ale${c}/image${i}.png`,
-                        `fotos_ale${c}/photo${i}.jpg`,
-                        `fotos_ale${c}/img${i}.jpg`
-                    ];
-
-                    // Creamos una imagen invisible para probar si existe en el repositorio
-                    // Si carga bien, la agregamos a la galería de forma ordenada
-                    // (Nota: Si guardaste las fotos con sus nombres originales, podemos mapearlas o listarlas)
-                }
-            }
-
-            // Para garantizar que veas tus fotos de inmediato desde cualquier cuenta:
-            // ¿Cómo se llaman los archivos de tus fotos dentro de las carpetas? 
-            // (Por ejemplo: ¿tienen números 1.jpg, 2.jpg o nombres personalizados?)
-            
-            // Combinamos con las fotos locales que se hayan subido por el botón
             let userPhotos = JSON.parse(localStorage.getItem('user_photos') || '[]');
+            
             userPhotos.forEach(src => {
                 const img = document.createElement('img');
                 img.src = src;
@@ -198,7 +172,6 @@
             });
         }
 
-        // Manejo de nuevas fotos subidas por el usuario
         document.getElementById('imageInput').addEventListener('change', function(event) {
             const files = event.target.files;
             let userPhotos = JSON.parse(localStorage.getItem('user_photos') || '[]');
