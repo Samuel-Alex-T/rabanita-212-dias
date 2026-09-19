@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#24103f">
+<title>Feliz 212 días Rabanita ❤️</title>
+<style>
+:root{
+  --bg:#0f071a; --panel:#1a0d2b; --panel2:#24103f; --purple:#7c4dff;
+  --purple2:#a77bff; --text:#f7f2ff; --muted:#c9bddb; --line:#3a2353;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text); background:
+  radial-gradient(circle at 15% 15%,#32134f55 0 18%,transparent 38%),
+  radial-gradient(circle at 85% 80%,#51208a33 0 15%,transparent 35%),var(--bg);
+  min-height:100vh;
+}
+.container{width:min(1080px,92%);margin:auto}
+header{min-height:100vh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:40px 0}
+.hero{max-width:850px;position:relative;z-index:2}
+.badge{display:inline-block;padding:8px 15px;border:1px solid var(--line);border-radius:999px;background:#ffffff08;color:var(--muted);font-size:.9rem}
+h1{font-size:clamp(2.4rem,7vw,5.5rem);line-height:1.02;margin:22px 0 16px;letter-spacing:-.04em}
+.subtitle{font-size:clamp(1rem,2vw,1.25rem);line-height:1.75;color:var(--muted);max-width:760px;margin:0 auto}
+.counter-card{
+  margin:34px auto 0; width:min(390px,100%);padding:22px;border-radius:24px;
+  background:linear-gradient(145deg,#ffffff0d,#ffffff04);border:1px solid var(--line);
+  box-shadow:0 18px 60px #0005;backdrop-filter:blur(10px)
+}
+.counter{font-size:clamp(4rem,13vw,7rem);font-weight:800;line-height:1;color:#fff}
+.counter-label{color:var(--muted);margin-top:7px}
+.btn{
+  border:1px solid #ffffff20;background:#ffffff0a;color:#fff;border-radius:14px;
+  padding:11px 16px;cursor:pointer;font-weight:700;transition:.2s
+}
+.btn:hover{background:#ffffff15;transform:translateY(-1px)}
+.btn.primary{background:var(--purple);border-color:transparent}
+.btn.danger{background:#7e244455;border-color:#b75a7a}
+.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+section{padding:85px 0}
+.section-title{font-size:clamp(1.8rem,4vw,3rem);margin:0 0 10px}
+.section-text{color:var(--muted);line-height:1.7;margin-top:0}
+.audio{
+  display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap;
+  padding:18px 20px;border:1px solid var(--line);border-radius:20px;background:#ffffff08
+}
+.audio-info strong{display:block}.audio-info span{font-size:.9rem;color:var(--muted)}
+input[type=file]{display:none}
+.upload{display:inline-flex;align-items:center;gap:8px}
+.book-wrap{display:grid;place-items:center;margin-top:30px}
+.book{
+  width:min(720px,100%);aspect-ratio:4/3;position:relative;border-radius:24px;
+  overflow:hidden;background:#12091e;border:1px solid var(--line);box-shadow:0 25px 80px #0007
+}
+.book img{width:100%;height:100%;object-fit:contain;display:block}
+.empty{height:100%;display:grid;place-items:center;padding:30px;text-align:center;color:var(--muted)}
+.book-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:18px}
+.page-count{min-width:100px;text-align:center;color:var(--muted)}
+.thumbs{display:flex;gap:10px;overflow:auto;padding:16px 2px 4px}
+.thumb{width:80px;height:60px;flex:0 0 auto;object-fit:cover;border-radius:9px;border:2px solid transparent;cursor:pointer;opacity:.7}
+.thumb.active{border-color:var(--purple2);opacity:1}
+.hint{font-size:.85rem;color:#9d90ac;margin-top:10px;text-align:center}
+.heart{position:absolute;color:#9d6cff;opacity:.18;font-size:34px;z-index:1;animation:float 6s ease-in-out infinite}
+.h1{left:7%;top:17%}.h2{right:9%;top:28%;font-size:25px;animation-delay:1.4s}.h3{right:18%;bottom:13%;font-size:30px;animation-delay:2.3s}
+@keyframes float{50%{transform:translateY(-13px) rotate(5deg)}}
+footer{text-align:center;padding:35px 0 50px;color:#8e809e;font-size:.85rem}
+@media(max-width:600px){
+  header{min-height:92vh}.audio{align-items:flex-start}
+  section{padding:60px 0}.book{aspect-ratio:1/1}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="heart h1">♥</div><div class="heart h2">♥</div><div class="heart h3">♥</div>
+  <div class="hero container">
+    <span class="badge">Una amistad que sigue contando ✦</span>
+    <h1>Feliz <span id="days">212</span> dias Rabanita ❤️</h1>
+    <p class="subtitle">A pasado mucho tiempo desde nuestro gran encuentro y quiero que este tiempo siga contando, quiero que sepas que eres y siempre seras mi gran amiga</p>
+    <div class="counter-card">
+      <div class="counter" id="counter">212</div>
+      <div class="counter-label">días compartidos</div>
+    </div>
+    <div class="controls">
+      <a class="btn primary" href="#galeria">Ver recuerdos ↓</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<section id="musica">
+  <h2 class="section-title">Nuestra música</h2>
+  <p class="section-text">Puedes controlar la música mientras recorres la página.</p>
+  <div class="audio">
+    <div class="audio-info">
+      <strong>Paul Anka — Put Your Head On My Shoulder</strong>
+      <span id="audioStatus">Preparando reproducción…</span>
+    </div>
+    <button class="btn primary" id="audioBtn">▶ Reproducir</button>
+  </div>
+  <audio id="music" loop preload="auto" src="Put Your Head On My Shoulder.mp3"></audio>
+  <p class="hint">Coloca el archivo de audio con el nombre <b>Put Your Head On My Shoulder.mp3</b> junto a este HTML. Los navegadores pueden bloquear el autoplay hasta que interactúes con la página.</p>
+</section>
+
+<section id="galeria">
+  <h2 class="section-title">Nuestro libro de recuerdos</h2>
+  <p class="section-text">Sube tus fotos y quedarán guardadas localmente en este navegador.</p>
+  <label class="btn primary upload">＋ Agregar fotos
+    <input id="fileInput" type="file" accept="image/*" multiple>
+  </label>
+  <button class="btn danger" id="clearBtn" type="button">Borrar fotos</button>
+
+  <div class="book-wrap">
+    <div class="book" id="book"><div class="empty" id="empty">Aún no hay fotos.<br>Agrega algunas para comenzar el álbum.</div></div>
+    <div class="book-nav">
+      <button class="btn" id="prev">← Anterior</button>
+      <span class="page-count" id="pageCount">0 / 0</span>
+      <button class="btn" id="next">Siguiente →</button>
+    </div>
+    <div class="hint">También puedes deslizar la foto hacia la izquierda o derecha.</div>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+</section>
+</main>
+
+<footer>Hecho con cariño para celebrar una gran amistad · 212 → ∞</footer>
+
+<script>
+/* CONTADOR: 212 corresponde al 19/09/2026 en Colombia (UTC-5). */
+const BASE_DATE = new Date("2026-09-19T00:00:00-05:00");
+function colombiaDate(){
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat("en-CA",{
+    timeZone:"America/Bogota",year:"numeric",month:"2-digit",day:"2-digit"
+  }).formatToParts(now);
+  const get=k=>parts.find(p=>p.type===k).value;
+  return new Date(`${get("year")}-${get("month")}-${get("day")}T00:00:00-05:00`);
+}
+function updateCounter(){
+  const today=colombiaDate();
+  const diff=Math.floor((today-BASE_DATE)/86400000);
+  const days=212+Math.max(0,diff);
+  document.getElementById("days").textContent=days;
+  document.getElementById("counter").textContent=days;
+}
+updateCounter();
+setInterval(updateCounter,60000);
+
+/* AUDIO */
+const music=document.getElementById("music"), audioBtn=document.getElementById("audioBtn"), audioStatus=document.getElementById("audioStatus");
+function setAudioUI(){
+  if(music.paused){audioBtn.textContent="▶ Reproducir";audioStatus.textContent="Pausada";}
+  else{audioBtn.textContent="Ⅱ Pausar";audioStatus.textContent="Reproduciendo";}
+}
+audioBtn.addEventListener("click",async()=>{
+  try{ if(music.paused) await music.play(); else music.pause(); setAudioUI(); }
+  catch(e){audioStatus.textContent="No se pudo reproducir. Revisa el archivo de audio."; }
+});
+window.addEventListener("load",async()=>{
+  try{await music.play();}catch(e){}
+  setAudioUI();
+});
+
+/* ÁLBUM PERSISTENTE CON INDEXEDDB */
+const DB_NAME="RabanitaAlbumDB", STORE="photos";
+let db, photos=[], index=0;
+function openDB(){
+  return new Promise((resolve,reject)=>{
+    const req=indexedDB.open(DB_NAME,1);
+    req.onupgradeneeded=e=>e.target.result.createObjectStore(STORE,{keyPath:"id",autoIncrement:true});
+    req.onsuccess=e=>{db=e.target.result;resolve(db)};
+    req.onerror=()=>reject(req.error);
+  });
+}
+function tx(mode){return db.transaction(STORE,mode).objectStore(STORE)}
+function getAll(){return new Promise((resolve,reject)=>{const r=tx("readonly").getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+function addPhoto(blob,name){return new Promise((resolve,reject)=>{const r=tx("readwrite").add({blob,name,created:Date.now()});r.onsuccess=()=>resolve();r.onerror=()=>reject(r.error)})}
+function clearPhotos(){return new Promise((resolve,reject)=>{const r=tx("readwrite").clear();r.onsuccess=()=>resolve();r.onerror=()=>reject(r.error)})}
+async function refresh(){photos=await getAll();index=Math.min(index,Math.max(0,photos.length-1));render()}
+function render(){
+  const book=document.getElementById("book"), thumbs=document.getElementById("thumbs"), count=document.getElementById("pageCount");
+  book.innerHTML=""; thumbs.innerHTML="";
+  count.textContent=photos.length?`${index+1} / ${photos.length}`:"0 / 0";
+  if(!photos.length){book.innerHTML='<div class="empty">Aún no hay fotos.<br>Agrega algunas para comenzar el álbum.</div>';return}
+  const url=URL.createObjectURL(photos[index].blob);
+  const img=document.createElement("img"); img.src=url; img.alt=photos[index].name||"Recuerdo";
+  book.appendChild(img);
+  photos.forEach((p,i)=>{
+    const t=document.createElement("img"); t.className="thumb"+(i===index?" active":"");
+    t.src=URL.createObjectURL(p.blob);t.alt="Miniatura "+(i+1);
+    t.onclick=()=>{index=i;render()};thumbs.appendChild(t);
+  });
+}
+document.getElementById("fileInput").addEventListener("change",async e=>{
+  for(const file of e.target.files) await addPhoto(file,file.name);
+  e.target.value=""; await refresh();
+});
+document.getElementById("prev").onclick=()=>{if(photos.length){index=(index-1+photos.length)%photos.length;render()}};
+document.getElementById("next").onclick=()=>{if(photos.length){index=(index+1)%photos.length;render()}};
+document.getElementById("clearBtn").onclick=async()=>{
+  if(confirm("¿Borrar todas las fotos guardadas en este navegador?")){await clearPhotos();photos=[];index=0;render()}
+};
+let touchX=null;
+document.getElementById("book").addEventListener("touchstart",e=>touchX=e.changedTouches[0].clientX,{passive:true});
+document.getElementById("book").addEventListener("touchend",e=>{
+  if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;
+  if(Math.abs(dx)>45){if(dx<0)document.getElementById("next").click();else document.getElementById("prev").click()}
+  touchX=null;
+});
+openDB().then(refresh).catch(()=>alert("Tu navegador no permite almacenamiento local para este álbum."));
+</script>
+</body>
+</html>
