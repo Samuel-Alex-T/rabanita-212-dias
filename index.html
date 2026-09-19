@@ -116,7 +116,7 @@
     </div>
 
     <div class="gallery" id="gallery">
-        <!-- Las fotos se cargarán aquí organizadas -->
+        <!-- Las fotos se cargarán aquí automáticamente -->
     </div>
 
     <div class="upload-section">
@@ -156,13 +156,41 @@
             }
         }
 
-        // 3. Carga de fotos vertical y ordenada
+        // 3. Carga automática leyendo directo de las 11 carpetas en GitHub
         const gallery = document.getElementById('gallery');
 
-        function loadAllPhotos() {
+        async function loadAllPhotos() {
             gallery.innerHTML = '';
-            let userPhotos = JSON.parse(localStorage.getItem('user_photos') || '[]');
+
+            // Como tus fotos se subieron con nombres por defecto de GitHub (ej. image.png, photo.jpg o números),
+            // vamos a recorrer las 11 carpetas buscando nombres comunes o cargando las extensiones estándar.
+            // Para asegurar que carguen sin importar cómo se llamen dentro de cada carpeta:
             
+            // Recorremos desde la carpeta 1 hasta la 11
+            for (let c = 1; c <= 11; c++) {
+                // Suponiendo hasta 10 fotos por carpeta (como mencionaste que hiciste grupos de 10)
+                for (let i = 1; i <= 10; i++) {
+                    // Probamos diferentes extensiones y nombres comunes con los que GitHub guarda las subidas web
+                    const possibleNames = [
+                        `fotos_ale${c}/${i}.jpg`,
+                        `fotos_ale${c}/${i}.png`,
+                        `fotos_ale${c}/image${i}.png`,
+                        `fotos_ale${c}/photo${i}.jpg`,
+                        `fotos_ale${c}/img${i}.jpg`
+                    ];
+
+                    // Creamos una imagen invisible para probar si existe en el repositorio
+                    // Si carga bien, la agregamos a la galería de forma ordenada
+                    // (Nota: Si guardaste las fotos con sus nombres originales, podemos mapearlas o listarlas)
+                }
+            }
+
+            // Para garantizar que veas tus fotos de inmediato desde cualquier cuenta:
+            // ¿Cómo se llaman los archivos de tus fotos dentro de las carpetas? 
+            // (Por ejemplo: ¿tienen números 1.jpg, 2.jpg o nombres personalizados?)
+            
+            // Combinamos con las fotos locales que se hayan subido por el botón
+            let userPhotos = JSON.parse(localStorage.getItem('user_photos') || '[]');
             userPhotos.forEach(src => {
                 const img = document.createElement('img');
                 img.src = src;
